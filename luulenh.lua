@@ -1,64 +1,64 @@
---------------------------Cài Zerotier centos                                           font: unico
+--------------------------Cµi Zerotier centos                                           font: unico
 --lenh cai:
 curl -s https://install.zerotier.com | sudo bash
 --lenh them mang:
 zerotier-cli join xxxxxxxx
 --------------------------setup linux
-doi pass khi mất pass
+doi pass khi mÊt pass
       centos 6 
-      khởi động ấn e
-      sau đó thêm ( =1 " có dấu cách đầu dấu =") vào cuối đoạn code và chạy boot : "b"
-      nhập lệnh: "passwd"   để thiết lập lại
+      khëi ®éng Ên e
+      sau ®ã thªm ( =1 " cã dÊu c¸ch ®Çu dÊu =") vµo cuèi ®o¹n code vµ ch¹y boot : "b"
+      nhËp lÖnh: "passwd"   ®Ó thiÕt lËp l¹i
 --------------------------ifconfig: command not found--------------------------------
 ifconfig: command not found
-khi sử dụng trên centos/RHEL thì bạn có thể khắc phuc bằng cách cài đặt net-tools
+khi sö dông trªn centos/RHEL th× b¹n cã thÓ kh¾c phuc b»ng c¸ch cµi ®Æt net-tools
 yum install net-tools
 
-netstat -tulpn 						" xem port đang chạy"
+netstat -tulpn 						" xem port ®ang ch¹y"
 
---------------------------Nén và giải nén file trong centos
-1. Nén và giải nén file có đuôi .gz
-1.1 Nén
-#gzip [tên file]
+--------------------------NÐn vµ gi¶i nÐn file trong centos
+1. NÐn vµ gi¶i nÐn file cã ®u«i .gz
+1.1 NÐn
+#gzip [tªn file]
 
-1.2 Giải nén
-#gunzip [tên file]
+1.2 Gi¶i nÐn
+#gunzip [tªn file]
 
-2. Gom và bung tập tin hoặc thư mục đuôi .tar
+2. Gom vµ bung tËp tin hoÆc th­ môc ®u«i .tar
 2.1 Gom
-#tar -cvf [tênfile.tar] [file1] [file2] ...
-//Đóng gói và nén dữ liệu
+#tar -cvf [tªnfile.tar] [file1] [file2] ...
+//§ãng gãi vµ nÐn d÷ liÖu
 //# tar -czvf filename.tar.gz file1 file2 folder1 folder2
 2.2 Bung
 #tar -xvf [file.tar]
 
-2.3 Nén và Gom
+2.3 NÐn vµ Gom
 #tar -zcvf [file.tar.gz] file1 file2 ...
 
-2.4 Giải nén và bung
+2.4 Gi¶i nÐn vµ bung
 #tar -zxvf [file.tar.gz]
 
-3. Giải nén file có đuôi .bz2
+3. Gi¶i nÐn file cã ®u«i .bz2
 #tar xjvf [file.tar.bz2]
---------------------------xoá file trong centos
+--------------------------xo¸ file trong centos
 
-rm "tên file"
-rm -r "tên thư mục"
-rm -d "tên thư mục rỗng"
+rm "tªn file"
+rm -r "tªn th­ môc"
+rm -d "tªn th­ môc rçng"
 
 
-thêm các chức năng sau rm:
--i :		.Khi bạn xoá 1 file hoặc thư mục nào đó bạn cần chương trình lệnh hiển thị thông 
-			báo hỏi xác nhận có muốn xoá file đó hay không thì hãy sử dụng option ‘-i‘
--f :		.Bạn sử dụng option ‘-f‘ để ép buộc xoá file không hỏi xác nhận. 
-			.Kết hợp giữa option ‘-r‘ và option ‘-f‘để xoá 1 thư mục
+thªm c¸c chøc n¨ng sau rm:
+-i :		.Khi b¹n xo¸ 1 file hoÆc th­ môc nµo ®ã b¹n cÇn ch­¬ng tr×nh lÖnh hiÓn thÞ th«ng 
+			b¸o hái x¸c nhËn cã muèn xo¸ file ®ã hay kh«ng th× h·y sö dông option ‘-i‘
+-f :		.B¹n sö dông option ‘-f‘ ®Ó Ðp buéc xo¸ file kh«ng hái x¸c nhËn. 
+			.KÕt hîp gi÷a option ‘-r‘ vµ option ‘-f‘®Ó xo¸ 1 th­ môc
 			
 --------------------------lenh hamachi
 -----xoa khoi room
 hamachi evict (network ID) (client ID)
 -----tao room
 hamachi create  (network ID) (pass)
-cài hamachi bằng file
+cµi hamachi b»ng file
 
 sudo yum install redhat-lsb
 wget https://www.vpn.net/installers/file-moi-nhat.rpm
@@ -70,92 +70,92 @@ sudo rpm -ivh logmein-hamachi-2.1.0.203-1.x86_64.rpm
 
 systemctl restart NetworkManager
 
---------------------------lỗi 
+--------------------------lçi 
 --bash: wget: command not found
 
-Bước 1. Cài đặt và cập nhật thời gian. Nếu chưa cài đặt hãy chạy lệnh sau: trong khi đang cài, 
-đừng thao tác gì trên màn hình cmd nhé
+B­íc 1. Cµi ®Æt vµ cËp nhËt thêi gian. NÕu ch­a cµi ®Æt h·y ch¹y lÖnh sau: trong khi ®ang cµi, 
+®õng thao t¸c g× trªn mµn h×nh cmd nhÐ
 
 yum –y update
 
-Bước 2. Installing wget – Cài đặt wget
+B­íc 2. Installing wget – Cµi ®Æt wget
 
-Hãy dùng lệnh sau để cài đặt wget: Bạn sẽ nhập "y" sau đó nhấn enter nếu được hỏi 
+H·y dïng lÖnh sau ®Ó cµi ®Æt wget: B¹n sÏ nhËp "y" sau ®ã nhÊn enter nÕu ®­îc hái 
 
-wget cài rất nhanh, mất vài s thôi nhé
+wget cµi rÊt nhanh, mÊt vµi s th«i nhÐ
 
 yum install wget
 
-Như vậy là Bạn đã cài xong rồi đó!
+Nh­ vËy lµ B¹n ®· cµi xong råi ®ã!
 
 
---------------------------lỗi không tạo được thư viện
+--------------------------lçi kh«ng t¹o ®­îc th­ viÖn
 # yum install redhat-lsb
---------------------------Lỗi ???? ở SecureCRT:
-Vào centos thêm đoạn này vào cuối rồi ping ip xem nhận chưa.
+--------------------------Lçi ???? ë SecureCRT:
+Vµo centos thªm ®o¹n nµy vµo cuèi råi ping ip xem nhËn ch­a.
 Code:
 ifconfig eth1 192.168.1.100 netmask 255.255.255.0 up
-Trích dẫn Gửi bởi vipbk  Xem bài viết
-Lỗi chơi 1 thời gian đánh không ra vật phẩm và ném đồ ra ngoài mất luôn:
+TrÝch dÉn Göi bëi vipbk  Xem bµi viÕt
+Lçi ch¬i 1 thêi gian ®¸nh kh«ng ra vËt phÈm vµ nÐm ®å ra ngoµi mÊt lu«n:
 
-* Nguyên nhân (theo mình hiểu): các bạn ra ngoài thành Tương Dương phía tây (và cả một số thành khác) để ý thấy có rất nhiều Kim/Mộc/Thủy/Hỏa/Thổ Liên Hoa cứ sau một khoảng thời gian lại tự động rớt ra.
-=> Rớt ra quá nhiều nên đánh quái nào cũng không ra đồ nữa 
+* Nguyªn nh©n (theo m×nh hiÓu): c¸c b¹n ra ngoµi thµnh T­¬ng D­¬ng phÝa t©y (vµ c¶ mét sè thµnh kh¸c) ®Ó ý thÊy cã rÊt nhiÒu Kim/Méc/Thñy/Háa/Thæ Liªn Hoa cø sau mét kho¶ng thêi gian l¹i tù ®éng rít ra.
+=> Rít ra qu¸ nhiÒu nªn ®¸nh qu¸i nµo còng kh«ng ra ®å n÷a 
 
-* Cách sửa: không cho s3relay chạy event đó nữa:
-Mở file gateway/s3relay/relaysetting/task/tasklist.ini
-Xóa bỏ:
+* C¸ch söa: kh«ng cho s3relay ch¹y event ®ã n÷a:
+Më file gateway/s3relay/relaysetting/task/tasklist.ini
+Xãa bá:
 Code:
 [Task_58]
 TaskFile=menglanjie_06.lua
-hoặc đổi tên file trên để s3 không load file đó nữa (do không tìm thấy file)
+hoÆc ®æi tªn file trªn ®Ó s3 kh«ng load file ®ã n÷a (do kh«ng t×m thÊy file)
 
 
---------------------------CÀI ĐẶT CÁC VPS
+--------------------------CµI §ÆT C¸C VPS
 
 
-Bước 2: Đổi mật khẩu Root ngay sau chúng ta đăng nhập vào được (lưu ý: mật khẩu Root khá là quan trọng, nên các bạn phải nhớ kỹ đó nhé). Các bạn gõ Command sau:
+B­íc 2: §æi mËt khÈu Root ngay sau chóng ta ®¨ng nhËp vµo ®­îc (l­u ý: mËt khÈu Root kh¸ lµ quan träng, nªn c¸c b¹n ph¶i nhí kü ®ã nhÐ). C¸c b¹n gâ Command sau:
 
 
 
 Code:
 
 sudo passwd root
-Sau đó nhập mật khẩu mới và Xác nhận mật khẩu mới bằng việc lập lại thêm một lần nữa (lưu ý: là lúc gõ mật khẩu mới, nó sẽ không hiển thị trên màn hình, nên tuyệt đối phải cẩn thận từng chữ)
+Sau ®ã nhËp mËt khÈu míi vµ X¸c nhËn mËt khÈu míi b»ng viÖc lËp l¹i thªm mét lÇn n÷a (l­u ý: lµ lóc gâ mËt khÈu míi, nã sÏ kh«ng hiÓn thÞ trªn mµn h×nh, nªn tuyÖt ®èi ph¶i cÈn thËn tõng ch÷)
 
-Sau khi xong nó sẽ báo như hình dưới:
+Sau khi xong nã sÏ b¸o nh­ h×nh d­íi:
 
 Read more: http://bao.edu.vn/threads/646-Huong-dan-cai-VPS-linux-va-dang-nhap-bang-SSH-tren-Google-Cloud-Platform.html?#ixzz4Glm5GxR3
 
-Bước 03: Config để đăng nhập SSH bằng mật khẩu thông qua PuTTY và Bitvise
+B­íc 03: Config ®Ó ®¨ng nhËp SSH b»ng mËt khÈu th«ng qua PuTTY vµ Bitvise
 
 
 
-Chúng ta bắt đầu gõ lệnh nhé:
+Chóng ta b¾t ®Çu gâ lÖnh nhÐ:
 
 Code:
 
 sudo yum install nano -y
-Sau đó chúng ta Edit File sshd_config
+Sau ®ã chóng ta Edit File sshd_config
 
 Code:
 
 sudo nano /etc/ssh/sshd_config
-Tại đây chúng ta tìm và chú ý đến 2 dòng: 
-- PasswordAuthentication, bạn sửa lại là yes
-- PermitRootLogin, bạn sửa lại là yes
+T¹i ®©y chóng ta t×m vµ chó ý ®Õn 2 dßng: 
+- PasswordAuthentication, b¹n söa l¹i lµ yes
+- PermitRootLogin, b¹n söa l¹i lµ yes
 
-sau khi sửa xong, bạn nhấn Ctrl+O --> Enter (để lưu lại) -> Ctrl+X (để thoát ra)
+sau khi söa xong, b¹n nhÊn Ctrl+O --> Enter (®Ó l­u l¹i) -> Ctrl+X (®Ó tho¸t ra)
 
 Read more: http://bao.edu.vn/threads/646-Huong-dan-cai-VPS-linux-va-dang-nhap-bang-SSH-tren-Google-Cloud-Platform.html?#ixzz4GlmEC6NQ
 
-Bước 04: Restart lại SSHD
+B­íc 04: Restart l¹i SSHD
 
 
 
 Code:
 
 sudo service sshd restart
-Hoặc reboot Server
+HoÆc reboot Server
 
 Code:
 
@@ -165,92 +165,92 @@ Read more: http://bao.edu.vn/threads/646-Huong-dan-cai-VPS-linux-va-dang-nhap-ba
 =======================================================================================================================================
 
 
---------------------------cài swap 
+--------------------------cµi swap 
 sudo dd if=/dev/zero of=/swapfile bs=4096 count=4096k
-1. TạO SWAP
-- SWAP là gì ? ( Nhiều người hay gọi là RAM ảO nhưng ko phải ảo đâu )
-Swap ( trao đổi ) ram với Bộ nhớ ram của máy , và swap dùng ổ cứng với một phân vùng trên là linux swap .
-swap sẽ cho tốt độ chậm vì vậy bạn cần sử dụng ổ cứng có tốc độ đọc và ghi cao . Mình khuyên các bạn hãy sử dụng các VPS có sử dụng ổ cứng SSD để tạo SWAP , mình đã thử nghiệm trên VPS của http://digitalocean.com và thấy swap chạy khá nhanh , rất dễ hiểu vì digitalocean là SSD 
-- Tạo swap bằng các lệnh sau đây
-Kiểm tra xem đã có phân vùng linux swap nào được kích hoạt hay chưa
-Mã:
+1. T¹O SWAP
+- SWAP lµ g× ? ( NhiÒu ng­êi hay gäi lµ RAM ¶O nh­ng ko ph¶i ¶o ®©u )
+Swap ( trao ®æi ) ram víi Bé nhí ram cña m¸y , vµ swap dïng æ cøng víi mét ph©n vïng trªn lµ linux swap .
+swap sÏ cho tèt ®é chËm v× vËy b¹n cÇn sö dông æ cøng cã tèc ®é ®äc vµ ghi cao . M×nh khuyªn c¸c b¹n h·y sö dông c¸c VPS cã sö dông æ cøng SSD ®Ó t¹o SWAP , m×nh ®· thö nghiÖm trªn VPS cña http://digitalocean.com vµ thÊy swap ch¹y kh¸ nhanh , rÊt dÔ hiÓu v× digitalocean lµ SSD 
+- T¹o swap b»ng c¸c lÖnh sau ®©y
+KiÓm tra xem ®· cã ph©n vïng linux swap nµo ®­îc kÝch ho¹t hay ch­a
+M·:
 swapon -s
-Nếu chưa có sẽ thấy chỉ thấy như sau
-Mã:
+NÕu ch­a cã sÏ thÊy chØ thÊy nh­ sau
+M·:
 Filename                Type        Size    Used    Priority
-Tiếp tục tạo ra file swap
-Mã:
+TiÕp tôc t¹o ra file swap
+M·:
 dd if=/dev/zero of=/swapfile bs=1024 count=1024k
-ở đây tôi tạo ra file swap là 1024MB , bạn cho thể tạo file 512mb nếu bạn muốn và thay bằng 512k
+ë ®©y t«i t¹o ra file swap lµ 1024MB , b¹n cho thÓ t¹o file 512mb nÕu b¹n muèn vµ thay b»ng 512k
 Make linux swap
-Mã:
+M·:
 mkswap /swapfile
-Thành công sẽ thấy hiện như sau
-Mã:
+Thµnh c«ng sÏ thÊy hiÖn nh­ sau
+M·:
 Setting up swapspace version 1, size = 1048572 KiB
 no label, UUID=257be8d9-54ee-4cc2-962d-cdadeadba1f4
-Kích hoạt swap
-Mã:
+KÝch ho¹t swap
+M·:
 swapon /swapfile
-Bây giờ ban hãy kiểm tra xem phân vùng linux swap đã hoạt động hay chưa
-Mã:
+B©y giê ban h·y kiÓm tra xem ph©n vïng linux swap ®· ho¹t ®éng hay ch­a
+M·:
 swapon -s
-Kết quả như dưới là đã ok
-Mã:
+KÕt qu¶ nh­ d­íi lµ ®· ok
+M·:
 Filename                                Type            Size    Used    Priority
 /swapfile                              file            1048568 0      -1
-Để mỗi lần reboot lại VPS thì mặc định swap sẽ bật thì các ban làm như sau
-Chỉnh sửa file /etc/fstab
-Mã:
+§Ó mçi lÇn reboot l¹i VPS th× mÆc ®Þnh swap sÏ bËt th× c¸c ban lµm nh­ sau
+ChØnh söa file /etc/fstab
+M·:
 nano /etc/fstab
-Thêm vào cuối
-Mã:
+Thªm vµo cuèi
+M·:
  /swapfile      none    swap    sw      0      0
-Sau đó lưu lại
+Sau ®ã l­u l¹i
 Set permissions cho swapfile
-Mã:
+M·:
 chown root:root /swapfile
 chmod 0600 /swapfile
-Bây giờ thì bạn đã có thêm 1GB ram nữa rồi nhé
-Gõ free để biết thông số swap ram
+B©y giê th× b¹n ®· cã thªm 1GB ram n÷a råi nhÐ
+Gâ free ®Ó biÕt th«ng sè swap ram
 
 
-2. CHỉNH SWAPPINESS 
-Swappiness là gì ?
-Chi tiết WIKI
-Có rất nhiều tranh cải về việc tối ưu hệ thống Linux liên quan đến Swappiness. Ngay cả các nhà phát triển Linux cũng không đồng y về tham số Swappiness nào là tối ưu.
-Giá trị swappiness điều khiển xu hướng trao đổi (swap) thông tin của kernel từ RAM và ổ cứng, Swappiness chấp nhận một giá trị trong khoảng từ 0 đến 100.
-Giá trị mặc định của swappiness được thiết lâp ở giá trị là 60. Nếu bạn cảm thấy quá trình trao đổi thông tin giữa nhân Linux ( kernel ) và RAM hay ổ cứng không đạt đến giá trị đó, bạn có thể giảm thông số của swappiness lên hoặc xuống theo ý của bạn
-Nói tóm lại thống số Swappiness để chỉ định mức độ ưu tiên của swap
-swappiness = 0 - có nghĩ là swap chỉ sử dụng thì RAM vật lý bị tràn ( hết ram )
-swappiness = 10 - Có nghĩa là nếu RAM vật lý còn 10% thì hệ thống sẽ dùng đến swap
-swappiness = 60 - Mặc định
-swappiness = 100 - Swap sẽ hoạt động hết mình . ưu tiên như là ram thật ( máy sẽ làm việc vất vả hơn)
+2. CHØNH SWAPPINESS 
+Swappiness lµ g× ?
+Chi tiÕt WIKI
+Cã rÊt nhiÒu tranh c¶i vÒ viÖc tèi ­u hÖ thèng Linux liªn quan ®Õn Swappiness. Ngay c¶ c¸c nhµ ph¸t triÓn Linux còng kh«ng ®ång y vÒ tham sè Swappiness nµo lµ tèi ­u.
+Gi¸ trÞ swappiness ®iÒu khiÓn xu h­íng trao ®æi (swap) th«ng tin cña kernel tõ RAM vµ æ cøng, Swappiness chÊp nhËn mét gi¸ trÞ trong kho¶ng tõ 0 ®Õn 100.
+Gi¸ trÞ mÆc ®Þnh cña swappiness ®­îc thiÕt l©p ë gi¸ trÞ lµ 60. NÕu b¹n c¶m thÊy qu¸ tr×nh trao ®æi th«ng tin gi÷a nh©n Linux ( kernel ) vµ RAM hay æ cøng kh«ng ®¹t ®Õn gi¸ trÞ ®ã, b¹n cã thÓ gi¶m th«ng sè cña swappiness lªn hoÆc xuèng theo ý cña b¹n
+Nãi tãm l¹i thèng sè Swappiness ®Ó chØ ®Þnh møc ®é ­u tiªn cña swap
+swappiness = 0 - cã nghÜ lµ swap chØ sö dông th× RAM vËt lý bÞ trµn ( hÕt ram )
+swappiness = 10 - Cã nghÜa lµ nÕu RAM vËt lý cßn 10% th× hÖ thèng sÏ dïng ®Õn swap
+swappiness = 60 - MÆc ®Þnh
+swappiness = 100 - Swap sÏ ho¹t ®éng hÕt m×nh . ­u tiªn nh­ lµ ram thËt ( m¸y sÏ lµm viÖc vÊt v¶ h¬n)
 
-Để chỉnh thông số swappiness ta dùng lệnh
-Mã:
+§Ó chØnh th«ng sè swappiness ta dïng lÖnh
+M·:
 echo 20 > /proc/sys/vm/swappiness
-Tuy nhiên thông số này sẽ về mặc định là 60 khi ta khởi động lại máy
-Để cho thông số luôn thay đổi khi khởi động lại máy chúng ta cần gõ lệnh sau
-Mã:
+Tuy nhiªn th«ng sè nµy sÏ vÒ mÆc ®Þnh lµ 60 khi ta khëi ®éng l¹i m¸y
+§Ó cho th«ng sè lu«n thay ®æi khi khëi ®éng l¹i m¸y chóng ta cÇn gâ lÖnh sau
+M·:
 echo "vm.swappiness=20" | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
-Gía trị tôi đặt là 10 còn các bạn tùy nhé
-cat /proc/sys/vm/swappiness để kiểm tra
-Đã thử nghiệm trên VPS SSD của http://digitalocean.com
-Chúc các bạn thành công
+GÝa trÞ t«i ®Æt lµ 10 cßn c¸c b¹n tïy nhÐ
+cat /proc/sys/vm/swappiness ®Ó kiÓm tra
+§· thö nghiÖm trªn VPS SSD cña http://digitalocean.com
+Chóc c¸c b¹n thµnh c«ng
 
-3. THAM KHảO THÊM: http://www.cyberciti.biz/faq/linux-a...ap-file-howto/
+3. THAM KH¶O TH£M: http://www.cyberciti.biz/faq/linux-a...ap-file-howto/
 
-4. NGUồN: daivietpda.vn
+4. NGUåN: daivietpda.vn
 
 
 
-Bạn cần disable dịch vụ iptables đang chạy trên CentOS version 4/5/6.
+B¹n cÇn disable dÞch vô iptables ®ang ch¹y trªn CentOS version 4/5/6.
 (a)iptables – IPv4 iptables firewall service.
 (b)ip6tables – IPv6 iptables firewall service.
 Disable firewall
 
-Những command bên dưới được thực hiện ở user root để disable firewall IPv4.
+Nh÷ng command bªn d­íi ®­îc thùc hiÖn ë user root ®Ó disable firewall IPv4.
 [root@linux24h ~]# service iptables save
 [root@linux24h ~]# service iptables stop
 [root@linux24h ~]# chkconfig iptables off
@@ -258,7 +258,7 @@ Sample Outputs:
 iptables: Flushing firewall rules:                         [  OK  ]
 iptables: Setting chains to policy ACCEPT: filter          [  OK  ]
 iptables: Unloading modules:                               [  OK  ]
-Tiếp theo, những command bên dưới được thực hiện ở user root để disable firewall IPv6.
+TiÕp theo, nh÷ng command bªn d­íi ®­îc thùc hiÖn ë user root ®Ó disable firewall IPv6.
 [root@linux24h ~]# service ip6tables save
 [root@linux24h ~]# service ip6tables stop
 [root@linux24h ~]# chkconfig ip6tables off
@@ -268,23 +268,23 @@ ip6tables: Setting chains to policy ACCEPT: filter         [  OK  ]
 ip6tables: Unloading modules:                              [  OK  ]
 Enable Firewall
 
-Bạn cần mở(Enable) Firewall IPv4 sử dụng các lệnh dưới đây ở root user:
+B¹n cÇn më(Enable) Firewall IPv4 sö dông c¸c lÖnh d­íi ®©y ë root user:
 [root@linux24h ~]# service iptables start
 [root@linux24h ~]# chkconfig iptables on
 Sample Outputs:
 iptables: Applying firewall rules:                         [  OK  ]
-Đối với Firewall IPv6
+§èi víi Firewall IPv6
 [root@linux24h ~]# service ip6tables start
 [root@linux24h ~]# chkconfig ip6tables on
-Command để kiểm tra tình trạng
+Command ®Ó kiÓm tra t×nh tr¹ng
 
 IPv4
 [root@linux24h ~]# service iptables status
-Hoặc
+HoÆc
 [root@linux24h ~]# /sbin/iptables -L -v -n
 IPv6
 [root@linux24h ~]# service ip6tables status
-Hoặc
+HoÆc
 [root@linux24h ~]# /sbin/ip6tables -L -v -n
 Sample Outputs(Disable Firewall):
 Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
@@ -303,132 +303,132 @@ Chain OUTPUT (policy ACCEPT 0 packets, 0 bytes)
 
 
 
-Các câu lệnh MySQL cần phải biết
- Học VPS / Database / Các câu lệnh MySQL cần phải biết
- 07/03/2014  Luân Trần  Database  11,024 Views  6 Comments
-CHIA Sẻ:
+C¸c c©u lÖnh MySQL cÇn ph¶i biÕt
+ Häc VPS / Database / C¸c c©u lÖnh MySQL cÇn ph¶i biÕt
+ 07/03/2014  Lu©n TrÇn  Database  11,024 Views  6 Comments
+CHIA SÎ:
 
 
-Khi chạy các lệnh này, bạn cần login vào MySQL với tài khoản root (MySQL root chứ không phải tài khoản root quản lý VPS) hoặc tài khoản có full quyền. Tất cả các thao tác mình thực hiện trên VPS CentOS
+Khi ch¹y c¸c lÖnh nµy, b¹n cÇn login vµo MySQL víi tµi kho¶n root (MySQL root chø kh«ng ph¶i tµi kho¶n root qu¶n lý VPS) hoÆc tµi kho¶n cã full quyÒn. TÊt c¶ c¸c thao t¸c m×nh thùc hiÖn trªn VPS CentOS
 
-Đăng nhập MySQL bạn dùng lệnh: mysql -u root -p
+§¨ng nhËp MySQL b¹n dïng lÖnh: mysql -u root -p
 
-1. Thư mục chứa database
+1. Th­ môc chøa database
 
-Trên CentOS, toàn bộ file raw database được lưu trong thư mục /var/lib/mysql
+Trªn CentOS, toµn bé file raw database ®­îc l­u trong th­ môc /var/lib/mysql
 
-2. Quản lý tài khoản và phân quyền
+2. Qu¶n lý tµi kho¶n vµ ph©n quyÒn
 
-Hiển thị toàn bộ users:
+HiÓn thÞ toµn bé users:
 mysql> SELECT * FROM mysql.user;
 
-Xóa null user:
+Xãa null user:
 mysql> DELETE FROM mysql.user WHERE user = ' ';
 
-Xóa tất cả user mà không phải root:
+Xãa tÊt c¶ user mµ kh«ng ph¶i root:
 mysql> DELETE FROM mysql.user WHERE NOT (host="localhost" AND user="root");
 
-Đổi tên tài khoản root (giúp bảo mật):
+§æi tªn tµi kho¶n root (gióp b¶o mËt):
 mysql> UPDATE mysql.user SET user="mydbadmin" WHERE user="root";
 
-Gán full quyền cho một user mới:
+G¸n full quyÒn cho mét user míi:
 mysql> GRANT ALL PRIVILEGES ON *.* TO 'username'@'localhost' IDENTIFIED BY 'mypass' WITH GRANT OPTION;
 
-Phân quyền chi tiết cho một user mới:
+Ph©n quyÒn chi tiÕt cho mét user míi:
 mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, INDEX, ALTER, CREATE TEMPORARY TABLES, LOCK TABLES ON mydatabase.* TO 'username'@'localhost' IDENTIFIED BY 'mypass';
 
-Gán full quyền cho một user mới trên một database nhất định:
+G¸n full quyÒn cho mét user míi trªn mét database nhÊt ®Þnh:
 mysql> GRANT ALL PRIVILEGES ON mydatabase.* TO 'username'@'localhost' IDENTIFIED BY 'mypass' WITH GRANT OPTION;
 
-Thay đổi mật khẩu user:
+Thay ®æi mËt khÈu user:
 mysql> UPDATE mysql.user SET password=PASSWORD("newpass") WHERE User='username';
 
-Xóa user:
+Xãa user:
 mysql> DELETE FROM mysql.user WHERE user="username";
-3. Các thao tác database
+3. C¸c thao t¸c database
 
-Hiển thị toàn bộ databases:
+HiÓn thÞ toµn bé databases:
 mysql> SHOW DATABASES;
-Tạo database:
+T¹o database:
 mysql> CREATE DATABASE mydatabase;
 
-Sử dụng một database:
+Sö dông mét database:
 mysql> USE mydatabase;
 
-Xóa một database:
+Xãa mét database:
 mysql> DROP DATABASE mydatabase;
 
-Tối ưu database:
+Tèi ­u database:
 All Databases:
 $ sudo mysqlcheck -o --all-databases -u root -p
 Single Database:
 $ sudo mysqlcheck -o db_schema_name -u root -p
-4. Các thao tác table
+4. C¸c thao t¸c table
 
-Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql> USE mydatabase;
+TÊt c¶ c¸c thao t¸c bªn d­íi b¹n ph¶i lùa chän tr­íc database b»ng c¸ch dïng lÖnh: mysql> USE mydatabase;
 
-Hiển thị toàn bộ table:
+HiÓn thÞ toµn bé table:
 mysql> SHOW TABLES;
 
-Hiển thị dữ liệu của table:
+HiÓn thÞ d÷ liÖu cña table:
 mysql> SELECT * FROM tablename;
 
-Đổi tên table :
+§æi tªn table :
 mysql> RENAME TABLE first TO second;
-hoặc
+hoÆc
 mysql> ALTER TABLE mytable rename as mynewtable;
 
-Xóa table:
+Xãa table:
 mysql> DROP TABLE mytable;
-5. Các thao tác cột và hàng
+5. C¸c thao t¸c cét vµ hµng
 
-Tất cả các thao tác bên dưới bạn phải lựa chọn trước database bằng cách dùng lệnh: mysql> USE mydatabase;
+TÊt c¶ c¸c thao t¸c bªn d­íi b¹n ph¶i lùa chän tr­íc database b»ng c¸ch dïng lÖnh: mysql> USE mydatabase;
 
-Hiển thị các column trong table:
+HiÓn thÞ c¸c column trong table:
 mysql> DESC mytable;
-hoặc
+hoÆc
 mysql> SHOW COLUMNS FROM mytable;
 
-Đổi tên column:
+§æi tªn column:
 mysql> UPDATE mytable SET mycolumn="newinfo" WHERE mycolumn="oldinfo";
 
-Select dữ liệu:
+Select d÷ liÖu:
 mysql> SELECT * FROM mytable WHERE mycolumn='mydata' ORDER BY mycolumn2;
 
-Insert dữ liệu vào table:
+Insert d÷ liÖu vµo table:
 mysql> INSERT INTO mytable VALUES('column1data','column2data','column3data','column4data','column5data','column6data','column7data','column8data','column9data');
 
-Xóa dữ liệu trong table:
+Xãa d÷ liÖu trong table:
 mysql> DELETE FROM mytable WHERE mycolumn="mydata";
 
-Cập nhật dữ liệu trong table:
+CËp nhËt d÷ liÖu trong table:
 mysql> UPDATE mytable SET column1="mydata" WHERE column2="mydata";
-6. Các thao tác sao lưu và phục hồi
+6. C¸c thao t¸c sao l­u vµ phôc håi
 
-Sao lưu toàn bộ database bằng lệnh (chú ý không có khoảng trắng giữa -p và mật khẩu):
+Sao l­u toµn bé database b»ng lÖnh (chó ý kh«ng cã kho¶ng tr¾ng gi÷a -p vµ mËt khÈu):
 mysqldump -u root -pmypass --all-databases > alldatabases.sql
 
-Sao lưu một database bất kỳ:
+Sao l­u mét database bÊt kú:
 mysqldump -u username -pmypass databasename > database.sql
 
-Khôi phục toàn bộ database bằng lệnh:
+Kh«i phôc toµn bé database b»ng lÖnh:
 mysql -u username -pmypass < alldatabases.sql (no space in between -p and mypass)
 
-Khôi phục một database bất kỳ:
+Kh«i phôc mét database bÊt kú:
 mysql -u username -pmypass databasename < database.sql
 
-Chỉ sao lưu cấu trúc database:
+ChØ sao l­u cÊu tróc database:
 mysqldump --no-data --databases databasename > structurebackup.sql
 
-Chỉ sao lưu cấu trúc nhiều database:
+ChØ sao l­u cÊu tróc nhiÒu database:
 mysqldump --no-data --databases databasename1 databasename2 databasename3 > structurebackup.sql
 
-Sao lưu một số table nhất định:
+Sao l­u mét sè table nhÊt ®Þnh:
 mysqldump --add-drop-table -u username -pmypass databasename table_1 table_2 > databasebackup.sql
 Related Posts:
-Backup và Restore MySQL Database bằng dòng lệnh
-Tạo mysql database và user bằng lệnh terminal
-21 câu lệnh Linux phải nhớ
+Backup vµ Restore MySQL Database b»ng dßng lÖnh
+T¹o mysql database vµ user b»ng lÖnh terminal
+21 c©u lÖnh Linux ph¶i nhí
 Reset MySQL root password
 
 ----------------------------link tai sql--------------------------
@@ -445,9 +445,9 @@ https://drive.google.com/file/d/1Fcxu0KxODSwkaWpYSC-yJx5EIi_enHpb/view?usp=shari
 https://drive.google.com/file/d/17dYrzaGuHprLn8FtQarVSfNBMuMHVXXt/view?usp=sharing
 ------------------------------------------------------CAI DAT JX PC------------------------------------------------------
 
-----------------------------------------PHẦN 1 : TRÊN CENTOS 7
+----------------------------------------PHÇN 1 : TR£N CENTOS 7
 
----------------------------Chạy các lệnh sau để cài thư viện---------------------------
+---------------------------Ch¹y c¸c lÖnh sau ®Ó cµi th­ viÖn---------------------------
 yum update -y -y
 yum install net-tools -y
 yum install libuuid.i686 -y
@@ -455,72 +455,72 @@ yum install libcrypto.so.6 -y
 yum install libstdc++.so.6 -y
 yum install libuuid.so.1 -y
 
----------------------------Cài mysql---------------------------
+---------------------------Cµi mysql---------------------------
 yum install mariadb-server -y
 systemctl enable mariadb
 systemctl start mariadb
 
---Để Remote MySQL từ Navicat bằng User Root thì làm thêm 1 phát này nữa:
+--§Ó Remote MySQL tõ Navicat b»ng User Root th× lµm thªm 1 ph¸t nµy n÷a:
 
 sudo mysql -u root -pP@ssw0rd
 GRANT ALL ON *.* to root@'%' IDENTIFIED BY 'P@ssw0rd';
 
---Note: chữ P@ssw0rd chính là Password của các bác đó nha.
+--Note: ch÷ P@ssw0rd chÝnh lµ Password cña c¸c b¸c ®ã nha.
 
       
---Hiển thị toàn bộ databases:
+--HiÓn thÞ toµn bé databases:
 mysql> SHOW DATABASES;
-Tạo database:
+T¹o database:
 mysql> CREATE DATABASE mydatabase;
 
---Sử dụng một database:
+--Sö dông mét database:
 mysql> USE mydatabase;
 
---Xóa một database:
+--Xãa mét database:
 mysql> DROP DATABASE mydatabase;
----------------------------Cấu hình mật khẩu cho mysql (mặc định là 1234560123)---------------------------
+---------------------------CÊu h×nh mËt khÈu cho mysql (mÆc ®Þnh lµ 1234560123)---------------------------
 mysql_secure_installation
-Nhấn Enter 
-Nhấn Y
-Đặt mật khẩu 1234560123
-Nhập lại 
-Chọn Y
-Chọn n
-Chọn y rồi y
+NhÊn Enter 
+NhÊn Y
+§Æt mËt khÈu 1234560123
+NhËp l¹i 
+Chän Y
+Chän n
+Chän y råi y
 
----------------------------Tắt tường lửa---------------------------
-systemctl stop firewalld			" dừng firewalld"
-systemctl disable firewalld			"xóa firewalld"
+---------------------------T¾t t­êng löa---------------------------
+systemctl stop firewalld			" dõng firewalld"
+systemctl disable firewalld			"xãa firewalld"
 firewall-cmd --zone=public --permanent --add-port=81/tcp
 firewall-cmd --reload
 
----------------------------Tạo Database server1---------------------------
-- Nhập 
+---------------------------T¹o Database server1---------------------------
+- NhËp 
 mysql -uroot -p
-mật khẩu 1234560123
+mËt khÈu 1234560123
 CREATE DATABASE server1;
 SHOW DATABASES;
----------------------------Chép file vào CENTOS---------------------------
-- Dùng WINSCP chép file jxser đã có vào thư mục /home/
+---------------------------ChÐp file vµo CENTOS---------------------------
+- Dïng WINSCP chÐp file jxser ®· cã vµo th­ môc /home/
 
----------------------------Chỉnh các thông số IP trong thư mục gateway và server1---------------------------
-- Như file jxser mặc định đã để IP giống với IP khi config card mạng CENTOS 6 lúc đầu.
-Các file goddess.cfg
-Ngay chổ InternetIP chỉnh thành IP của CENTOS (192.168.1.100)
+---------------------------ChØnh c¸c th«ng sè IP trong th­ môc gateway vµ server1---------------------------
+- Nh­ file jxser mÆc ®Þnh ®· ®Ó IP gièng víi IP khi config card m¹ng CENTOS 6 lóc ®Çu.
+C¸c file goddess.cfg
+Ngay chæ InternetIP chØnh thµnh IP cña CENTOS (192.168.1.100)
 bishop.cfg
-- Ngay chổ AccSvrIP = 192.168.1.200 (IP của máy ảo WIN)
-- Còn cái mac-address thì khi nào làm online sẽ chỉnh theo địa chỉ MAC của máy WIN và CENTOS riêng
-- Ngay chổ InternetIP chỉnh thành IP của CENTOS (192.168.1.100)
+- Ngay chæ AccSvrIP = 192.168.1.200 (IP cña m¸y ¶o WIN)
+- Cßn c¸i mac-address th× khi nµo lµm online sÏ chØnh theo ®Þa chØ MAC cña m¸y WIN vµ CENTOS riªng
+- Ngay chæ InternetIP chØnh thµnh IP cña CENTOS (192.168.1.100)
 relay_config.ini
 [root]
-Address = 192.168.1.200 (IP của máy ảo WIN)
+Address = 192.168.1.200 (IP cña m¸y ¶o WIN)
 
 [FixIP]
-InternetIP = 192.168.1.100 (IP của máy ảo CENTOS)
+InternetIP = 192.168.1.100 (IP cña m¸y ¶o CENTOS)
 
-server.cfg cũng chỉnh y vậy
+server.cfg còng chØnh y vËy
 
-Tiếp theo là mở Port Firewall của CentOS:
+TiÕp theo lµ më Port Firewall cña CentOS:
 
 iptables -I INPUT -p TCP --dport 5622 -j ACCEPT
 iptables -I INPUT -p TCP --dport 5623 -j ACCEPT
@@ -528,10 +528,10 @@ iptables -I INPUT -p TCP --dport 5632 -j ACCEPT
 iptables -I INPUT -p TCP --dport 6666 -j ACCEPT
 iptables -I INPUT -p TCP --dport 3306 -j ACCEPT
 service iptables save
-service iptables restart --( muốn chạy lệnh này cần phải cài : yum install iptables-services)
+service iptables restart --( muèn ch¹y lÖnh nµy cÇn ph¶i cµi : yum install iptables-services)
 
       
--- Câu lệnh chạy sv        
+-- C©u lÖnh ch¹y sv        
 cd /home/jxser/gateway
 ./goddess_y
 
@@ -544,7 +544,7 @@ cd /home/jxser/gateway/s3relay
 cd /home/jxser/server1
 ./jx_linux_y
           
-----------------------------------Xóa log của linux như nào thế các bác
+----------------------------------Xãa log cña linux nh­ nµo thÕ c¸c b¸c
 jxser/sever1/logs
 jxser/sever1/itemexchange_setting/rolevalue_log
 jxser/sever1/rolevalueladder_setting/rolevalue_log
@@ -555,70 +555,70 @@ jxser/gateway/s3relay/logs
 jxser/gateway/s3relay/relay_log
 jxser/gateway/s3relay/RelayRunData
 jxser/gateway/s3relay/roleback
-----------------------------------------PHẦN 2 : TRÊN WINXP
-----------------------------------Cài SQL 2000---------------------------------------------------------------------------------------
-- Tải file SQLServer2000.rar
-- Giải nén
-- Chạy file setup.bat
-- Làm theo hướng dẫn như video
+----------------------------------------PHÇN 2 : TR£N WINXP
+----------------------------------Cµi SQL 2000---------------------------------------------------------------------------------------
+- T¶i file SQLServer2000.rar
+- Gi¶i nÐn
+- Ch¹y file setup.bat
+- Lµm theo h­íng dÉn nh­ video
 - Authentication Mode
 Password : sa
-Nhập lại: sa
-Sau khi cài xong
-- Vào Start – Program Files chọn Microsoft Sql …
-- Chạy service_manager => xuất hiện cửa sổ mysql db
-- Nhấn nút tam giác xanh để bật service lên
+NhËp l¹i: sa
+Sau khi cµi xong
+- Vµo Start – Program Files chän Microsoft Sql …
+- Ch¹y service_manager => xuÊt hiÖn cöa sæ mysql db
+- NhÊn nót tam gi¸c xanh ®Ó bËt service lªn
 * Attach Database
-- Để sẵn 1 file account_tong.MDF
+- §Ó s½n 1 file account_tong.MDF
 - Start-Program-Enterprise Manager
-- Làm theo video để attach database
-- Vào phần Security-Login
-- Chỉnh password thành 1234560123
-* Chép thư mục Pays – và GMPassGen.exe
-- Mở database.ini
-- Chỉnh IP thành 192.168.1.200
-Dùng GMPassGen.exe để convert mã hoá IP
-Sau đó điền vào mục IP trong file database
-- Database tên là account_tong – cũng mã hoá
-- user và pass cũng mã hoá
+- Lµm theo video ®Ó attach database
+- Vµo phÇn Security-Login
+- ChØnh password thµnh 1234560123
+* ChÐp th­ môc Pays – vµ GMPassGen.exe
+- Më database.ini
+- ChØnh IP thµnh 192.168.1.200
+Dïng GMPassGen.exe ®Ó convert m· ho¸ IP
+Sau ®ã ®iÒn vµo môc IP trong file database
+- Database tªn lµ account_tong – còng m· ho¸
+- user vµ pass còng m· ho¸
 - User : sa
 - Pass: 1234560123
-Điền theo video (chú ý, GMPassGen.exe mỗi lần chạy là mã khác nhau, ở máy tui thì ra như video, nhưng máy các bạn sẽ ra khác, quan trọng copy đủ và đúng vị trí)
-Chuột phải vào file S3RelayServer_Y chọn Send to desktop
-Tương tự với file Sword3paysys
-Đặt tên 1 cho S3RelayServer_Y, 2 cho Sword3…
-Chạy 1
-Chạy 2
-Mở SecureCRT 
-Kết nối
-Chạy 1, 2, 3, S1
+§iÒn theo video (chó ý, GMPassGen.exe mçi lÇn ch¹y lµ m· kh¸c nhau, ë m¸y tui th× ra nh­ video, nh­ng m¸y c¸c b¹n sÏ ra kh¸c, quan träng copy ®ñ vµ ®óng vÞ trÝ)
+Chuét ph¶i vµo file S3RelayServer_Y chän Send to desktop
+T­¬ng tù víi file Sword3paysys
+§Æt tªn 1 cho S3RelayServer_Y, 2 cho Sword3…
+Ch¹y 1
+Ch¹y 2
+Më SecureCRT 
+KÕt nèi
+Ch¹y 1, 2, 3, S1
 
 
-Sau đó chạy lại lệnh khởi động server bên máy ảo win
+Sau ®ã ch¹y l¹i lÖnh khëi ®éng server bªn m¸y ¶o win
 ----------------------------------Chay qua 1 model hoac ip pulic va Private ---------------------------------------------------------
 4. Config jx_server_y
-- Dịch vụ này là dịch vụ game chính.
-- Người chơi trong game sẽ liên tục connect tới dịch vụ này.
-- Chạy port 6666 (có thể mỗi game có đổi port).
+- DÞch vô nµy lµ dÞch vô game chÝnh.
+- Ng­êi ch¬i trong game sÏ liªn tôc connect tíi dÞch vô nµy.
+- Ch¹y port 6666 (cã thÓ mçi game cã ®æi port).
 - File config: servercfg.ini
-- Thông thường chỉ chỉnh 1 chỗ là InternetIp trong FixIp, chỗ này nếu có proxy thì đặt IP proxy (123.123.123.123) vào đây.
-II. Config tích hợp Proxy
+- Th«ng th­êng chØ chØnh 1 chç lµ InternetIp trong FixIp, chç nµy nÕu cã proxy th× ®Æt IP proxy (123.123.123.123) vµo ®©y.
+II. Config tÝch hîp Proxy
 1. Add IP Proxy:
-- Mục đích để services cuối jx_server_y có thể start được với IP proxy.
-- Chạy lệnh:
-/sbin/ip addr add 123.123.123.123/32 dev eth0:1 (với 123.123.123.123 là IP proxy, eth0 là tên card mạng - cần thay bằng tên tương ứng với server của bạn)
-- Add dòng trên vào file /etc/rc.local luôn để khi khởi động tự add IP proxy vào sv linux.
-- Với CentOS 7 thì cần chạy thêm lệnh chmod +x /etc/rc.d/rc.local thì khi reboot mới có tác dụng.
-2. Xóa các rule iptables mặc định:
-- Flush các rules mặt định của iptables tại 3 các chains:
+- Môc ®Ých ®Ó services cuèi jx_server_y cã thÓ start ®­îc víi IP proxy.
+- Ch¹y lÖnh:
+/sbin/ip addr add 123.123.123.123/32 dev eth0:1 (víi 123.123.123.123 lµ IP proxy, eth0 lµ tªn card m¹ng - cÇn thay b»ng tªn t­¬ng øng víi server cña b¹n)
+- Add dßng trªn vµo file /etc/rc.local lu«n ®Ó khi khëi ®éng tù add IP proxy vµo sv linux.
+- Víi CentOS 7 th× cÇn ch¹y thªm lÖnh chmod +x /etc/rc.d/rc.local th× khi reboot míi cã t¸c dông.
+2. Xãa c¸c rule iptables mÆc ®Þnh:
+- Flush c¸c rules mÆt ®Þnh cña iptables t¹i 3 c¸c chains:
 iptables -F INPUT
 iptables -F OUTPUT
 iptables -F FORWARD
-3. Nat traffic game từ proxy vào sv linux, nat sang port game.
-- Chạy lệnh:
+3. Nat traffic game tõ proxy vµo sv linux, nat sang port game.
+- Ch¹y lÖnh:
 iptables -t nat -A PREROUTING -d 192.168.199.11/32 -p tcp -m tcp --dport 6666 -j DNAT --to-destination 123.123.123.123
-- Lưu lại cấu hình iptables hiện tại cho lần khởi động tiếp theo: #iptables-save > /etc/sysconfig/iptables
-Phần này là rất quan trọng, cần làm theo chính xác để chạy được game cũng như khi reboot máy chủ thì ko phải vào config lại. Đến đây là hoàn tất rồi!
+- L­u l¹i cÊu h×nh iptables hiÖn t¹i cho lÇn khëi ®éng tiÕp theo: #iptables-save > /etc/sysconfig/iptables
+PhÇn nµy lµ rÊt quan träng, cÇn lµm theo chÝnh x¸c ®Ó ch¹y ®­îc game còng nh­ khi reboot m¸y chñ th× ko ph¶i vµo config l¹i. §Õn ®©y lµ hoµn tÊt råi!
 
-----------------------------------------HẾT--------------------------------------------------------------------------------------------------------------
+----------------------------------------HÕT--------------------------------------------------------------------------------------------------------------
 
