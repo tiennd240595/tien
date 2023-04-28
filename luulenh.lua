@@ -7,7 +7,7 @@ zerotier-cli join xxxxxxxx
 doi pass khi mÊt pass
       centos 6 
       khëi ®éng Ên e
-      sau ®ã thªm ( =1 " cã dÊu c¸ch ®Çu dÊu =") vµo cuèi ®o¹n code vµ ch¹y boot : "b"
+      sau ®ã thªm (" 1" " cã dÊu c¸ch ®Çu so 1") vµo cuèi ®o¹n code vµ ch¹y boot : "b"
       nhËp lÖnh: "passwd"   ®Ó thiÕt lËp l¹i
 --------------------------ifconfig: command not found--------------------------------
 ifconfig: command not found
