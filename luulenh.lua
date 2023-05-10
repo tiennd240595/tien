@@ -39,7 +39,7 @@ netstat -tulpn 						" xem port ®ang ch¹y"
 #tar -zxvf [file.tar.gz]
 
 3. Gi¶i nÐn file cã ®u«i .bz2
-#tar xjvf [file.tar.bz2]
+#tar -xjvf [file.tar.bz2]
 --------------------------xo¸ file trong centos
 
 rm "tªn file"
