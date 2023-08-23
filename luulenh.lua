@@ -1,17 +1,64 @@
---------------------------Cµi Zerotier centos                                           font: unico
+--------------------------Cµi Zerotier centos b¶ng ®iÒu khiÓn l­u tr÷ web aaPanel
+---1. Cµi ®Æt aaPanel Linux trªn CentOS, Debian hoÆc Ubuntu
+
+wget -O install.sh http://www.aapanel.com/script/install_6.0_en.sh
+
+--§èi víi Debian hoÆc Ubuntu Linux
+
+wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh
+
+
+--B©y giê, chóng ta cã tËp lÖnh trªn hÖ thèng cña m×nh, ®· ®Õn lóc ch¹y lÖnh cµi ®Æt aaPanel:
+
+bash install.sh
+
+---2. Gì cµi ®Æt b¶ng ®iÒu khiÓn web aaPanel
+
+--Trong tr­êng hîp trong t­¬ng lai, b¹n muèn xãa cµi ®Æt b¶ng ®iÒu khiÓn m¸y chñ, h·y sö dông lÖnh d­íi ®©y:
+
+sudo service bt stop && chkconfig --del bt && rm -f /etc/init.d/bt && rm -rf /www/server/panel
+
+--NÕu lÖnh trªn kh«ng ho¹t ®éng th× h·y sö dông lÖnh nµy:
+
+sudo bt stop &&sudo update-rc.d -f bt remove &&sudo rm -f /etc/init.d/bt &&sudo rm -rf /www/server/panel
+
+--------------------------Fix lçi ®¨ng nhËp ssh Access denied trªn centos 9 stream
+
+vi /etc/ssh/sshd_config
+
+--t×m tíi dßng bªn d­íi 
+#PermitRootLogin .....
+--sau ®ã söa ®óng nh­ vËy
+PermitRootLogin yes
+
+--sau do restart……
+     
+systemctl restart sshd
+--------------------------Cµi Zerotier centos                                           
 --lenh cai:
 curl -s https://install.zerotier.com | sudo bash
 --lenh them mang:
-zerotier-cli join xxxxxxxx
+zerotier-cli join 8056c2e21c1d0613
+--lenh tu dong chay
+systemctl start zerotier-one
+systemctl enable zerotier-one
+--------------------------wifi linux
+nmcli dev wifi list							--quÐt m¹ng wifi
+nmcli dev wifi connect tenwifi				--kÕt nèi ®Õn wifi ®¸nh ®óng tªn
+nmcli --ask dev wifi connect tenwifi		--kÕt nèi ®Õn wifi cã mËt khÈu
+nmcli con show								--xem c¸c kÕt nèi ®· l­u
+nmcli con down tenwifi						--®æi kÕt nèi wifi
+nmcli con up tenwifi						--chuyÓn kÕt nèi wifi ®· l­u
+
 --------------------------setup linux
-doi pass khi mÊt pass
+--doi pass khi mÊt pass
       centos 6 
       khëi ®éng Ên e
       sau ®ã thªm (" 1" " cã dÊu c¸ch ®Çu so 1") vµo cuèi ®o¹n code vµ ch¹y boot : "b"
       nhËp lÖnh: "passwd"   ®Ó thiÕt lËp l¹i
 --------------------------ifconfig: command not found--------------------------------
 ifconfig: command not found
-khi sö dông trªn centos/RHEL th× b¹n cã thÓ kh¾c phuc b»ng c¸ch cµi ®Æt net-tools
+--khi sö dông trªn centos/RHEL th× b¹n cã thÓ kh¾c phuc b»ng c¸ch cµi ®Æt net-tools
 yum install net-tools
 
 netstat -tulpn 						" xem port ®ang ch¹y"
@@ -620,5 +667,54 @@ iptables -t nat -A PREROUTING -d 192.168.199.11/32 -p tcp -m tcp --dport 6666 -j
 - L­u l¹i cÊu h×nh iptables hiÖn t¹i cho lÇn khëi ®éng tiÕp theo: #iptables-save > /etc/sysconfig/iptables
 PhÇn nµy lµ rÊt quan träng, cÇn lµm theo chÝnh x¸c ®Ó ch¹y ®­îc game còng nh­ khi reboot m¸y chñ th× ko ph¶i vµo config l¹i. §Õn ®©y lµ hoµn tÊt råi!
 
-----------------------------------------HÕT--------------------------------------------------------------------------------------------------------------
+----------------------------------Screen ch¹y nhiÒu cöa sæ trªn centos ---------------------------------------------------------
 
+-----------c¸ch cµi ®Æt
+Cµi ®Æt cµi ®Æt Screen trªn CentOS 7 vµ CentOS 8
+Centos 7.
+
+sudo yum install screen
+
+CentOs 8
+sö dông lÖnh trªn b¹n cã thÓ kh«ng cµi ®­îc vµ gÆp th«ng b¸o "Error: Unable to find a match: screen". 
+Nguyªn nh©n do screen trªn CentOs yªu cÇu b¹n ph¶i cµi ®Æt EPEL repository tr­íc.
+B¹n cã thÓ cµi EPEL repository b»ng lÖnh d­íi ®©y:
+
+sudo yum install epel-release
+
+TiÕp theo sö dông lÖnh sudo yum install screen ®Ó cµi ®Æt screen cho CentOs 8
+
+-----------c¸ch sö dông
+g¾n tªn cho cöa sæ screen ®Ó tiÖn qu¶n lý, b¹n sö dông lÖnh sau:
+
+screen -S session1
+
+Screen sö dông dßng lÖnh ®Ó thùc thi terminal multiplexing. C¸c lÖnh nµy rÊt dÔ häc. Chóng ®Òu b¾t ®Çu víi cÊu tróc CTRL+* * , * lµ biÕn.
+
+LÖnh	M« t¶
+CTRL+a c	T¹o cöa sæ míi
+CTRL+a  ”	LiÖt kª tÊt c¶ cöa sæ ®· ®­îc t¹o
+CTRL+a a	Víi lÖnh nµy, b¹n cã thÓ xãa CTRL+a.
+CTRL+a CTRL+d	§Ó session ch¹y.
+
+B¹n còng cã thÓ chia terminal screen ra. VÝ dô, sö dông lÖnh CTRL+a S ®Ó chia terminal theo chiÒu ngang.
+
+chia terminal screen
+
+§Ó thay ®æi terminal tiÕp theo, nhÊn CTRL+a TAB . §Ó ®ãng nã, nhÊn CTRL+a X .
+
+LiÖt kª danh s¸ch Screen:
+
+Sau khi tho¸t khái screen, ®Ó muèn biÕt cã bao nhiªu cöa sæ screen ®ang ch¹y. Tõ cöa sæ terminal b¹n sö dông lÖnh sau: screen -ls
+
+§Ó t¾t mét Screen chóng ta sö dông dßng lÖnh sau: screen -S session1 -X quit
+
+C¸c b¹n nhí ®æi session1 thµnh tªn Screen c¸c b¹n muèn t¾t nhÐ.
+----------------------------------------HÕT--------------------------------------------------------------------------------------------------------------
+------------------hµm jx 
+{AddSkillState({1},{2},{3},{4},{5});--thªm skill
+1 -idskill
+2 -level skill
+3 -tho¸t mÊt{0}tho¸t kh«ng mÊt{1}
+4 -thêi gian skill tån t¹
+5 -chÕt mÊt{0} kh«ng mÊt{1}}
