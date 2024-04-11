@@ -1,0 +1,17 @@
+apt update -y
+apt upgrade -y
+apt-get
+apt-get install git
+
+--------------tai tool dao tu git cua minh
+
+git clone http://github.com/.....
+
+cd "đến thư mục vừa tải"
+
+chmod +x rpc_mining.sh
+chmod u+x astrominer
+./rpc_mining.sh
+
+thêm "-m 4" để chạy 4 nhân cpu
+thêm "" để set tên worker
