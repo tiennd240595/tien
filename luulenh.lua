@@ -785,12 +785,14 @@ echo "Cập nhật thành công! IP Public mới: $NEW_IP"
 --Phân quyền script:
 
 sudo chmod +x /usr/local/bin/update_ip.sh
------Bạn có thể dùng cron job để chạy script mỗi phút.
+									
+--chạy script mỗi phút.
+									
 1. Mở crontab để chỉnh sửa
 crontab -e
 
 2. Thêm dòng chạy mỗi phút
-* * * * * /root/update_nat.sh
+* * * * * /usr/local/bin/update_ip.sh
 
 
 * * * * * 		→ chạy mỗi phút.
@@ -807,8 +809,6 @@ Kiểm tra log cron:
 
 tail -f /var/log/cron
 
-4. Đảm bảo script có quyền thực thi
-chmod +x /root/update_nat.sh
 									
 				
 ----------------------------------------HÕT--------------------------------------------------------------------------------------------------------------
