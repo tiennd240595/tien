@@ -782,17 +782,19 @@ echo "$NEW_IP" > "$IP_FILE"
 
 echo "Cập nhật thành công! IP Public mới: $NEW_IP"
 
+--Phân quyền script:
+
+sudo chmod +x /usr/local/bin/update_ip.sh
 -----Bạn có thể dùng cron job để chạy script mỗi phút.
 1. Mở crontab để chỉnh sửa
 crontab -e
 
 2. Thêm dòng chạy mỗi phút
-* * * * * /root/update_nat.sh >> /var/log/update_nat.log 2>&1
+* * * * * /root/update_nat.sh
 
 
 * * * * * 		→ chạy mỗi phút.
 */5 * * * * 	→ chạy mỗi 5 phút.
->> /var/log/update_nat.log 2>&1 → ghi log ra file để tiện theo dõi lỗi.
 									
 3. Lưu lại và kiểm tra cron
 
