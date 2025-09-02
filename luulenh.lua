@@ -750,13 +750,13 @@ fi
 
 # --- Xóa IP alias cũ ---
 if [ -n "$OLD_IP" ]; then
-  ip addr del "$OLD_IP/32" dev "$IFACE" 2>/dev/null
+  ip addr del "$OLD_IP/32" dev "$LOCAL_ALIAS" 2>/dev/null
 fi
 
-# --- Gán IP alias mới ---
-ip addr add "$NEW_IP/32" dev "$IFACE" label "$LOCAL_ALIAS"
+# --- Gán IP alias mới ngay ---
+/sbin/ip addr add "$NEW_IP/32" dev "$LOCAL_ALIAS"
 
-# --- Ghi IP alias vào rc.local ---
+# --- Cập nhật rc.local để tự thêm IP khi reboot ---
 sed -i "/ip addr add .* dev $LOCAL_ALIAS/d" "$RC_LOCAL"
 echo "/sbin/ip addr add $NEW_IP/32 dev $LOCAL_ALIAS" >> "$RC_LOCAL"
 chmod +x "$RC_LOCAL"
