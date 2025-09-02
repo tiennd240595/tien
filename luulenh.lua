@@ -710,6 +710,105 @@ Sau khi tho¸t khái screen, ®Ó muèn biÕt cã bao nhiªu cöa sæ screen ®a
 §Ó t¾t mét Screen chóng ta sö dông dßng lÖnh sau: screen -S session1 -X quit
 
 C¸c b¹n nhí ®æi session1 thµnh tªn Screen c¸c b¹n muèn t¾t nhÐ.
+
+---------------------------thay đổi ip cho server khi sử dụng mạng IP động-------Font VNI
+
+#!/bin/bash
+
+IFACE="enp2s0"
+LOCAL_ALIAS="enp2s0:1"
+SERVER_LOCAL_IP="192.168.98.253"
+PORT="6667"
+IP_FILE="/tmp/current_public_ip"
+RC_LOCAL="/etc/rc.d/rc.local"
+
+NEW_IP=$(curl -4 -s ifconfig.me)
+
+[ ! -f "$IP_FILE" ] && echo "" > "$IP_FILE"
+OLD_IP=$(cat "$IP_FILE")
+
+if [ "$NEW_IP" == "$OLD_IP" ]; then
+  echo "Public IP chưa thay đổi: $NEW_IP"
+  exit 0
+fi
+
+echo "Phát hiện IP thay đổi: $OLD_IP -> $NEW_IP"
+
+# --- Cập nhật InternetIp trong servercfg.ini ---
+CFG_FILE="/home/jxser/server1/servercf0.ini"
+if [ -f "$CFG_FILE" ]; then
+  sed -i "s/^InternetIp=.*/InternetIp=$NEW_IP/" "$CFG_FILE"
+  echo "Đã cập nhật InternetIp trong $CFG_FILE thành $NEW_IP"
+fi
+
+# --- Cập nhật 0_Address trong serverlist.ini ---
+CFG_FILE="/home/jxser/server1/serverlist.ini"
+if [ -f "$CFG_FILE" ]; then
+  sed -i "s/^0_Address=.*/0_Address=$NEW_IP/" "$CFG_FILE"
+  echo "Đã cập nhật 0_Address trong $CFG_FILE thành $NEW_IP"
+fi
+
+# --- Xóa IP alias cũ ---
+if [ -n "$OLD_IP" ]; then
+  ip addr del "$OLD_IP/32" dev "$IFACE" 2>/dev/null
+fi
+
+# --- Gán IP alias mới ---
+ip addr add "$NEW_IP/32" dev "$IFACE" label "$LOCAL_ALIAS"
+
+# --- Ghi IP alias vào rc.local ---
+sed -i "/ip addr add .* dev $LOCAL_ALIAS/d" "$RC_LOCAL"
+echo "/sbin/ip addr add $NEW_IP/32 dev $LOCAL_ALIAS" >> "$RC_LOCAL"
+chmod +x "$RC_LOCAL"
+
+# --- Xóa rule NAT cũ ---
+if [ -n "$OLD_IP" ]; then
+  iptables -t nat -D PREROUTING -d "$SERVER_LOCAL_IP"/32 -p tcp -m tcp --dport "$PORT" \
+    -j DNAT --to-destination "$OLD_IP"
+fi
+
+# --- Thêm rule NAT mới ---
+iptables -t nat -A PREROUTING -d "$SERVER_LOCAL_IP"/32 -p tcp -m tcp --dport "$PORT" \
+  -j DNAT --to-destination "$NEW_IP"
+  
+# --- Lưu iptables để giữ sau reboot ---
+iptables-save > /etc/sysconfig/iptables
+
+# --- Khởi động lại mạng ---
+systemctl restart network
+
+# --- Lưu IP mới ---
+echo "$NEW_IP" > "$IP_FILE"
+
+echo "Cập nhật thành công! IP Public mới: $NEW_IP"
+
+-----Bạn có thể dùng cron job để chạy script mỗi phút.
+1. Mở crontab để chỉnh sửa
+crontab -e
+
+2. Thêm dòng chạy mỗi phút
+* * * * * /root/update_nat.sh >> /var/log/update_nat.log 2>&1
+
+
+* * * * * 		→ chạy mỗi phút.
+*/5 * * * * 	→ chạy mỗi 5 phút.
+>> /var/log/update_nat.log 2>&1 → ghi log ra file để tiện theo dõi lỗi.
+									
+3. Lưu lại và kiểm tra cron
+
+Kiểm tra cron đã cài đặt:
+
+crontab -l
+
+
+Kiểm tra log cron:
+
+tail -f /var/log/cron
+
+4. Đảm bảo script có quyền thực thi
+chmod +x /root/update_nat.sh
+									
+				
 ----------------------------------------HÕT--------------------------------------------------------------------------------------------------------------
 ------------------hµm jx 
 {AddSkillState({1},{2},{3},{4},{5});--thªm skill
